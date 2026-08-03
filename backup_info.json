@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-08-03 16:49:30",
+  "timestamp": "2026-08-03 16:50:07",
   "hostname": "d22e96593c00",
-  "backup_items": 
+  "backup_items": ["memories", "skills", "cron", "config.yaml", "kanban.db", "state.db", "channel_directory.json", "gateway_state.json", "SOUL.md", "hooks", "state"]
 }
