@@ -64,7 +64,7 @@ Use Hermes `cronjob` tool or system cron:
 0 */6 * * * /path/to/backup.sh
 ```
 
-In Hermes:
+In Hermes (agent mode - runs prompt each tick):
 ```python
 cronjob(
     action="create",
@@ -73,6 +73,18 @@ cronjob(
     script="/path/to/backup.sh"
 )
 ```
+
+In Hermes (no-agent mode - runs script directly, no LLM call, no auth needed):
+```python
+cronjob(
+    action="create",
+    name="Auto Backup",
+    schedule="0 */6 * * *",
+    script="backup.sh",  # Relative to ~/.hermes/scripts/
+    no_agent=True
+)
+```
+**Use `no_agent: true` for pure script execution** (backups, watchdogs, health checks). The script's stdout is delivered verbatim. Requires script in `~/.hermes/scripts/`.
 
 ## Pitfalls & Fixes
 
@@ -104,4 +116,7 @@ After setup, run manually once:
 
 - `references/github-push-protection.md` — resolving secret scanning blocks
 - `references/cron-schedule-examples.md` — common schedules
+- `references/no-agent-cron.md` — Hermes no_agent cron mode (script-only, no LLM)
+- `references/git-filter-branch-secrets.md` — purge secrets from git history
+- `references/hermes-version-updates.md` — Hermes Agent update workflows
 - `templates/backup-script.sh` — starter script with allowlist/denylist pattern

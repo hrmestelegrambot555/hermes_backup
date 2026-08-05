@@ -20,3 +20,5 @@ platforms:
       chat_id: '7919124166'
       name: Abolfazl
       user_id: '7919124166'
+openrouter:
+  api_key: sk-f3c5c250338cb639-yoy4h4-e7f771d9
